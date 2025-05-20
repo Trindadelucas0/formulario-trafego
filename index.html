@@ -20,45 +20,45 @@
             <legend id="legend-empresa" class="legend-empresa">🏢 Dados da Empresa</legend>
 
             <label for="nomeEmpresa" class="label-nome-empresa">Nome da empresa</label>
-            <input type="text" id="nomeEmpresa" name="nomeEmpresa" class="input-nome-empresa" required>
+            <input type="text" id="nomeEmpresa" name="nomeEmpresa" class="input-nome-empresa input-maiuscula" required>
 
             <label for="responsavel" class="label-responsavel">Nome do responsável</label>
-            <input type="text" id="responsavel" name="responsavel" class="input-responsavel" required>
+            <input type="text" id="responsavel" name="responsavel" class="input-responsavel input-maiuscula" required>
 
             <label for="telefone" class="label-telefone">Telefone/WhatsApp</label>
-            <input type="text" id="telefone" name="telefone" class="input-telefone" required>
+            <input type="text" id="telefone" name="telefone" class="input-telefone input-maiuscula" required>
 
             <label for="email" class="label-email">E-mail</label>
-            <input type="email" id="email" name="email" class="input-email" required>
+            <input type="email" id="email" name="email" class="input-email input-maiuscula" required>
 
             <label for="endereco" class="label-endereco">Endereço</label>
-            <input type="text" id="endereco" name="endereco" class="input-endereco">
+            <input type="text" id="endereco" name="endereco" class="input-endereco input-maiuscula">
 
             <label for="instagramEmpresa" class="label-instagram-empresa">@ do Instagram</label>
-            <input type="text" id="instagramEmpresa" name="instagramEmpresa" class="input-instagram-empresa">
+            <input type="text" id="instagramEmpresa" name="instagramEmpresa" class="input-instagram-empresa input-maiuscula">
 
             <label for="cnpj" class="label-cnpj">CNPJ</label>
-            <input type="text" id="cnpj" name="cnpj" class="input-cnpj">
+            <input type="text" id="cnpj" name="cnpj" class="input-cnpj input-maiuscula">
         </fieldset>
 
         <fieldset id="fs-negocio" class="fieldset-negocio">
             <legend id="legend-negocio" class="legend-negocio">🔎 Sobre o Negócio</legend>
 
             <label for="produto" class="label-produto">Qual é o seu produto ou serviço principal?</label><br>
-            <textarea id="produto" name="produto" rows="3" required class="textarea-produto"></textarea><br><br>
+            <textarea id="produto" name="produto" rows="3" required class="textarea-produto input-maiuscula"></textarea><br><br>
 
             <label for="publico" class="label-publico">Qual é o seu público-alvo ideal? (idade, gênero, localização,
                 interesses)</label><br>
-            <textarea id="publico" name="publico" rows="3" required class="textarea-publico"></textarea><br><br>
+            <textarea id="publico" name="publico" rows="3" required class="textarea-publico input-maiuscula"></textarea><br><br>
 
             <label for="investiu" class="label-investiu">Você já investiu em tráfego pago antes? Se sim, quais
                 resultados teve?</label><br>
-            <textarea id="investiu" name="investiu" rows="3" class="textarea-investiu"></textarea><br><br>
+            <textarea id="investiu" name="investiu" rows="3" class="textarea-investiu input-maiuscula"></textarea><br><br>
 
             <label for="site" class="label-site">Você já tem um site, loja virtual ou página de vendas? Qual o link?
                 <span style="color:#aaa; font-weight:400;">(opcional)</span></label><br>
-            <input type="text" id="site" name="site" class="input-site"><br><br>
-
+            <input type="url" id="site" name="site" class="input-site input-maiuscula"><br><br>
+ 
             <label class="label-redes">Quais redes sociais você utiliza ativamente?</label>
             <div class="checkbox-group">
                 <div class="checkbox-item">
@@ -84,7 +84,7 @@
                 <div class="checkbox-item">
                     <input type="checkbox" id="outraRede" name="redes[]" value="Outra">
                     <label for="outraRede">Outra:</label>
-                    <input type="text" id="outraRedeTexto" name="outraRedeTexto" class="input-outra-rede">
+                    <input type="text" id="outraRedeTexto" name="outraRedeTexto" class="input-outra-rede input-maiuscula">
                 </div>
             </div>
 
@@ -154,16 +154,16 @@
                 <div class="checkbox-item">
                     <input type="checkbox" id="outroObj" name="objetivo[]" value="Outro">
                     <label for="outroObj">Outro:</label>
-                    <input type="text" id="outroObjTexto" name="outroObjTexto" class="input-outro-objetivo">
+                    <input type="text" id="outroObjTexto" name="outroObjTexto" class="input-outro-objetivo input-maiuscula">
                 </div>
             </div>
 
             <label for="tempo" class="label-tempo">Em quanto tempo espera ver resultados?</label><br>
-            <input type="text" id="tempo" name="tempo" class="input-tempo"><br><br>
+            <input type="text" id="tempo" name="tempo" class="input-tempo input-maiuscula"><br><br>
 
             <label for="ofertaAtracao" class="label-oferta-atracao">Já tem uma oferta (promoção, bônus, condição
                 especial) para atrair o público?</label><br>
-            <textarea id="ofertaAtracao" name="ofertaAtracao" rows="3" class="textarea-oferta-atracao"></textarea><br>
+            <textarea id="ofertaAtracao" name="ofertaAtracao" rows="3" class="textarea-oferta-atracao input-maiuscula"></textarea><br>
         </fieldset>
 
         <fieldset id="fs-produto" class="fieldset-produto">
@@ -171,31 +171,29 @@
 
             <label for="descricaoProduto" class="label-descricao-produto">Descreva em detalhes o produto/serviço que
                 vamos anunciar.</label><br>
-            <textarea id="descricaoProduto" name="descricaoProduto" rows="3"
-                class="textarea-descricao-produto"></textarea><br><br>
+            <textarea id="descricaoProduto" name="descricaoProduto" rows="3" class="textarea-descricao-produto input-maiuscula"></textarea><br><br>
 
             <label for="diferenciais" class="label-diferenciais">Quais são os maiores diferenciais do seu negócio em
                 relação aos concorrentes?</label><br>
-            <textarea id="diferenciais" name="diferenciais" rows="3" class="textarea-diferenciais"></textarea><br><br>
+            <textarea id="diferenciais" name="diferenciais" rows="3" class="textarea-diferenciais input-maiuscula"></textarea><br><br>
 
             <label for="garantia" class="label-garantia">Existe alguma garantia, bônus ou condição especial que devemos
                 destacar?</label><br>
-            <textarea id="garantia" name="garantia" rows="3" class="textarea-garantia"></textarea><br>
+            <textarea id="garantia" name="garantia" rows="3" class="textarea-garantia input-maiuscula"></textarea><br>
         </fieldset>
 
         <fieldset id="fs-oferta" class="fieldset-oferta">
             <legend id="legend-oferta" class="legend-oferta">🧲 Sobre a Oferta</legend>
 
             <label for="oferta" class="label-oferta">Qual é a oferta que vamos divulgar nos anúncios?</label><br>
-            <textarea id="oferta" name="oferta" rows="3" class="textarea-oferta"></textarea><br><br>
+            <textarea id="oferta" name="oferta" rows="3" class="textarea-oferta input-maiuscula"></textarea><br><br>
 
             <label for="limite" class="label-limite">Existe um limite de estoque, vagas ou tempo?</label><br>
-            <input type="text" id="limite" name="limite" class="input-limite"><br><br>
+            <input type="text" id="limite" name="limite" class="input-limite input-maiuscula"><br><br>
 
             <label for="campanhaAnterior" class="label-campanha-anterior">Tem alguma campanha anterior que você gostou e
                 queria se inspirar? (Pode ser sua ou de outra marca)</label><br>
-            <textarea id="campanhaAnterior" name="campanhaAnterior" rows="3"
-                class="textarea-campanha-anterior"></textarea><br>
+            <textarea id="campanhaAnterior" name="campanhaAnterior" rows="3" class="textarea-campanha-anterior input-maiuscula"></textarea><br>
         </fieldset>
 
         <fieldset id="fs-destino" class="fieldset-destino">
@@ -203,16 +201,16 @@
 
             <label for="destino" class="label-destino">Para onde vamos enviar as pessoas que clicarem no
                 anúncio?</label><br>
-            <input type="text" id="destino" name="destino" class="input-destino"><br>
+            <input type="text" id="destino" name="destino" class="input-destino input-maiuscula"><br>
             <small class="small-destino">Ex: site, WhatsApp, Instagram, landing page, etc.</small><br><br>
 
             <label for="palavras" class="label-palavras">Existem palavras que você gostaria de evitar ou destacar nos
                 anúncios?</label><br>
-            <textarea id="palavras" name="palavras" rows="3" class="textarea-palavras"></textarea><br><br>
+            <textarea id="palavras" name="palavras" rows="3" class="textarea-palavras input-maiuscula"></textarea><br><br>
 
             <label for="concorrente" class="label-concorrente">Tem algum concorrente que você admira e quer se
                 inspirar?</label><br>
-            <textarea id="concorrente" name="concorrente" rows="3" class="textarea-concorrente"></textarea><br>
+            <textarea id="concorrente" name="concorrente" rows="3" class="textarea-concorrente input-maiuscula"></textarea><br>
         </fieldset>
 
         <br>
