@@ -15,6 +15,7 @@
     <h1 id="titulo-principal" class="titulo-principal">Briefing de Tráfego Pago</h1>
     <form id="form-briefing" class="form-briefing" action="https://api.sheetmonkey.io/form/koUeVA4URYSxongH6XtspA"
         method="POST">
+        <!-- <img src="img/vision 3.png" alt="Logo Vision Ads" class="logo-vision-ads"> -->
         <!-- DADOS DA EMPRESA -->
         <fieldset id="fs-empresa" class="fieldset-empresa">
             <legend id="legend-empresa" class="legend-empresa">🏢 Dados da Empresa</legend>
@@ -42,6 +43,7 @@
         </fieldset>
 
         <fieldset id="fs-negocio" class="fieldset-negocio">
+
             <legend id="legend-negocio" class="legend-negocio">🔎 Sobre o Negócio</legend>
 
             <label for="produto" class="label-produto">Qual é o seu produto ou serviço principal?</label><br>
@@ -215,7 +217,23 @@
 
         <br>
         <button type="submit" id="btn-enviar" class="btn-enviar">Enviar</button>
+        <img src="" alt="">
     </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                // Evita duplicar se já existir
+                if (!form.querySelector('.logo-vision-ads')) {
+                    const img = document.createElement('img');
+                    img.src = './img/vision 3.png';
+                    img.alt = 'Logo Vision Ads';
+                    img.className = 'logo-vision-ads';
+                    form.prepend(img);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
