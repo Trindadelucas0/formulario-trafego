@@ -223,20 +223,23 @@
     document.getElementById('form-briefing').addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // 1. Feedback visual no botão
         const btn = document.getElementById('btn-enviar');
+        const originalText = btn.innerText;
         btn.disabled = true;
-        btn.innerText = "Enviando Briefing...";
+        btn.innerText = "ENVIANDO BRIEFING...";
 
         const formData = new FormData(this);
         
-        // Captura checkboxes de redes sociais
+        // Captura checkboxes de Redes Sociais
         const redes = [];
         document.querySelectorAll('input[name="redes[]"]:checked').forEach(el => redes.push(el.value));
         
-        // Captura checkboxes de objetivos
+        // Captura checkboxes de Objetivos
         const objetivos = [];
         document.querySelectorAll('input[name="objetivo[]"]:checked').forEach(el => objetivos.push(el.value));
 
+        // Monta o objeto com EXATAMENTE os mesmos nomes do Apps Script
         const data = {
             nomeEmpresa: formData.get('nomeEmpresa'),
             responsavel: formData.get('responsavel'),
@@ -264,36 +267,38 @@
             campanhaAnterior: formData.get('campanhaAnterior'),
             destino: formData.get('destino'),
             palavras: formData.get('palavras'),
-            concorrente: formData.get('concorrente')
+            concorrente: formData.get('concorrente'),
+            dataEnvio: new Date().toLocaleString('pt-BR')
         };
 
-        // COLE AQUI A SUA URL DO GOOGLE APPS SCRIPT
-        const scriptURL = 'COLE_AQUI_A_SUA_NOVA_URL_DO_PASSO_1';
+        // SUA URL ATUALIZADA
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwoUnrry7uXV2WeyDT72_4HPJYZqbAKlZKHQfQBDZQK8pQ1UmtbEdnZwZfvJWM9mJ7gvQ/exec';
 
+        // 2. Envio para o Google Sheets
         fetch(scriptURL, {
             method: 'POST',
-            mode: 'no-cors',
+            mode: 'no-cors', // Necessário para evitar erro de CORS no localhost
+            cache: 'no-cache',
             body: JSON.stringify(data)
         })
         .then(() => {
-            alert('Briefing enviado com sucesso! Entraremos em contato em breve.');
-            // Opcional: Redirecionar para uma página de obrigado
-            // window.location.href = 'obrigado.html';
-            this.reset();
+            alert('✅ Briefing enviado com sucesso! Recebemos suas informações.');
+            this.reset(); // Limpa o formulário
             btn.disabled = false;
-            btn.innerText = "Enviar";
+            btn.innerText = originalText;
         })
         .catch(error => {
             console.error('Erro:', error);
-            alert('Houve um erro ao enviar. Por favor, tente novamente.');
+            alert('❌ Erro ao enviar. Verifique sua conexão.');
             btn.disabled = false;
+            btn.innerText = originalText;
         });
     });
 
-    // Código da Logo (que você já tinha)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        if (!form.querySelector('.logo-vision-ads')) {
+    // Mantendo sua lógica de inserção da Logo
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('form-briefing');
+        if (form && !form.querySelector('.logo-vision-ads')) {
             const img = document.createElement('img');
             img.src = './img/vision 3.png';
             img.alt = 'Logo Vision Ads';
