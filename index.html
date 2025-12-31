@@ -220,20 +220,88 @@
         <img src="" alt="">
     </form>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                // Evita duplicar se já existir
-                if (!form.querySelector('.logo-vision-ads')) {
-                    const img = document.createElement('img');
-                    img.src = './img/vision 3.png';
-                    img.alt = 'Logo Vision Ads';
-                    img.className = 'logo-vision-ads';
-                    form.prepend(img);
-                }
-            });
+    document.getElementById('form-briefing').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('btn-enviar');
+        btn.disabled = true;
+        btn.innerText = "Enviando Briefing...";
+
+        const formData = new FormData(this);
+        
+        // Captura checkboxes de redes sociais
+        const redes = [];
+        document.querySelectorAll('input[name="redes[]"]:checked').forEach(el => redes.push(el.value));
+        
+        // Captura checkboxes de objetivos
+        const objetivos = [];
+        document.querySelectorAll('input[name="objetivo[]"]:checked').forEach(el => objetivos.push(el.value));
+
+        const data = {
+            nomeEmpresa: formData.get('nomeEmpresa'),
+            responsavel: formData.get('responsavel'),
+            telefone: formData.get('telefone'),
+            email: formData.get('email'),
+            endereco: formData.get('endereco'),
+            instagramEmpresa: formData.get('instagramEmpresa'),
+            cnpj: formData.get('cnpj'),
+            produto: formData.get('produto'),
+            publico: formData.get('publico'),
+            investiu: formData.get('investiu'),
+            redes: redes,
+            outraRedeTexto: formData.get('outraRedeTexto'),
+            equipe: formData.get('equipe'),
+            orcamento: formData.get('orcamento'),
+            objetivos: objetivos,
+            outroObjTexto: formData.get('outroObjTexto'),
+            tempo: formData.get('tempo'),
+            ofertaAtracao: formData.get('ofertaAtracao'),
+            descricaoProduto: formData.get('descricaoProduto'),
+            diferenciais: formData.get('diferenciais'),
+            garantia: formData.get('garantia'),
+            oferta: formData.get('oferta'),
+            limite: formData.get('limite'),
+            campanhaAnterior: formData.get('campanhaAnterior'),
+            destino: formData.get('destino'),
+            palavras: formData.get('palavras'),
+            concorrente: formData.get('concorrente')
+        };
+
+        // COLE AQUI A SUA URL DO GOOGLE APPS SCRIPT
+        const scriptURL = 'COLE_AQUI_A_SUA_NOVA_URL_DO_PASSO_1';
+
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            alert('Briefing enviado com sucesso! Entraremos em contato em breve.');
+            // Opcional: Redirecionar para uma página de obrigado
+            // window.location.href = 'obrigado.html';
+            this.reset();
+            btn.disabled = false;
+            btn.innerText = "Enviar";
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Houve um erro ao enviar. Por favor, tente novamente.');
+            btn.disabled = false;
         });
-    </script>
+    });
+
+    // Código da Logo (que você já tinha)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        if (!form.querySelector('.logo-vision-ads')) {
+            const img = document.createElement('img');
+            img.src = './img/vision 3.png';
+            img.alt = 'Logo Vision Ads';
+            img.className = 'logo-vision-ads';
+            form.prepend(img);
+        }
+    });
+</script>
 </body>
 
 </html>
